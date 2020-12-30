@@ -1,0 +1,12 @@
+<p>ここはpostsのesです</p>
+<%= @post.name %>
+<%= @post.content %>
+
+<% if @comments %>
+    <% @comments.each do |comment| %>
+        <%= comment.comment %>
+        <%= comment.content %>
+    <% end %>
+<% else %>
+    <p>コメントが登録されていません</p>
+<% end %>

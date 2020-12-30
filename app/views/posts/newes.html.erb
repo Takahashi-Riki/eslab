@@ -1,4 +1,4 @@
-<%= form_tag("/posts/createes") do %>
+<%= form_tag("/posts/createes/#{current_user.id}/#{@company.id}") do %>
     <p>ESテーマ</p>
     <input name="name">
     <p>締切日</p>

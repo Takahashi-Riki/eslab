@@ -1,1 +1,10 @@
 <p>ここはcommentのnewです</p>
+<%= form_tag("/comment/create/#{@user.id}/#{@company.id}/#{@post.id}") do %>
+    <p>名前</p>
+    <input name="name">
+    <p>コメント</p>
+    <input name="comment">
+    <p>改善案</p>
+    <input name="content">
+    <input type="submit" value="送信">
+<% end %>

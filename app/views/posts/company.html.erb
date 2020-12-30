@@ -1,2 +1,10 @@
 <p>ここはpostsのcompanyです</p>
-<%= link_to("postのnewes", "/posts/newes") %>
+<% if @posts %>
+    <% @posts.each do |post| %>
+        <%= post.name %>
+        <%= link_to(post.name, ("/posts/company/#{current_user.id}/#{@company.id}/#{post.id}")) %>
+    <% end %>
+<% else %>
+    <p>ESが登録されていません</p>
+<% end %>
+<%= link_to("postのnewes", "/posts/newes/#{current_user.id}/#{@company.id}") %>

@@ -1,0 +1,6 @@
+<p>ここはcommentのentryです</p>
+<%= form_tag("/comment/check/#{@post.user_id}/#{@post.company_id}/#{@post.id}") do %>
+    <p>パスワードを入力してください</p>
+    <input name="password">
+    <input type="submit" value="エントリー">
+<% end %>
