@@ -1,0 +1,10 @@
+<p>ここはpostsのindexです</p>
+<% if @companies %>
+    <% @companies.each do |company| %>
+        <%= company.name %>
+        <%= link_to(company.name, ("/posts/company/#{current_user.id}/#{company.id}")) %>
+    <% end %>
+<% else %>
+    <p>企業が登録されていません</p>
+<% end %>
+<%= link_to("postのnewcompany", "/posts/newcompany") %>
