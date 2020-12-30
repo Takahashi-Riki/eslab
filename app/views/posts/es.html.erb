@@ -1,7 +1,15 @@
 <p>ここはpostsのesです</p>
+<p>このESを添削してもらいましょう</p>
+<p>以下をコピーしてください</p>
+<p>-----------------------------</p>
+<p>ESの添削をお願いします</p>
+<p>URL:localhost:3000/comment/entry/<%= @user.id %>/<%= @company.id %>/<%= @post.id %></p>
+<p>パスワード:<%= @post.password %></p>
+<p>-----------------------------</p>
+
 <%= @post.name %>
 <%= @post.content %>
-
+<p></p>
 <% if @comments %>
     <% @comments.each do |comment| %>
         <%= comment.comment %>

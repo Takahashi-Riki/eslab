@@ -1,8 +1,47 @@
 <%= form_tag("/posts/createes/#{current_user.id}/#{@company.id}") do %>
+    <% @post.errors.full_messages.each do |message| %>
+        <%= message %>
+    <% end %>
     <p>ESテーマ</p>
     <input name="name">
-    <p>締切日</p>
-    <input name="deadline" value="1月1日">
+    <select name="year_deadline" id="id_year">
+    </select>
+    <select name="month_deadline" id="id_month">
+    </select>
+    <select name="day_deadline" id="id_day">
+    </select>
+    <script>
+    (function() {
+    'use strict';
+
+    /* https://its-office.jp/blog/js/2016/03/08/ymd-html.htmlを参考 */
+
+    var optionLoop, this_day, this_month, this_year, today;
+    today = new Date();
+    this_year = today.getFullYear();
+    this_month = today.getMonth() + 1;
+    this_day = today.getDate();
+
+    optionLoop = function(start, end, id, this_day) {
+        var i, opt;
+
+        opt = null;
+        for (i = start; i <= end ; i++) {
+        if (i === this_day) {
+            opt += "<option value='" + i + "' selected>" + i + "</option>";
+        } else {
+            opt += "<option value='" + i + "'>" + i + "</option>";
+        }
+        }
+        return document.getElementById(id).innerHTML = opt;
+    };
+
+    optionLoop(1950, this_year, 'id_year', this_year);
+    optionLoop(1, 12, 'id_month', this_month);
+    optionLoop(1, 31, 'id_day', this_day);
+    })();
+
+    </script>
     <p>内容</p>
     <input name="content">
     <p>パスワード</p>
