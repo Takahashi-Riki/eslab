@@ -1,0 +1,348 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally bettr to create a new file per style scope.
+ *
+ */
+
+@import "bootstrap";
+
+/* ↓ヘッダー */
+header{
+    height:14%;
+}
+
+.notice {
+    color: rgb(255, 253, 253);
+    background-color: rgba(255, 208, 0, 0.726);
+    text-align: center;
+    height:7%;
+}
+
+.alert {
+    color: rgb(255, 254, 254);
+    background-color: rgba(255, 208, 0, 0.726);
+    text-align: center;
+    height:7%;
+}
+
+.logo{
+    height:100px;
+}
+
+.logo_container{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 3%;
+    display: inline-block;
+    width:40%;
+}
+
+.header_link{
+    float: right;
+}
+
+.header_nav{
+    display: inline-block;
+    margin-top: 25px;
+    float: right;
+    margin-right: 30px;
+}
+
+/* ↑ヘッダー */
+/* ↓フッター */
+footer{
+    height:60px;
+    background-color: rgba(247, 70, 238, 0.336);
+    color:white;
+
+    position: absolute;/* ←絶対位置 */
+    bottom: 0;
+    width: 100%;
+}
+
+a:link.footer_anchor, a:visited.footer_anchor, a:hover.footer_anchor, a:active.footer_anchor{
+    color: white;
+}
+
+.footer_nav {
+    text-align: center;
+    font-size: 15px;
+}
+
+footer li{
+    display: inline;
+}
+
+.copyright {
+    font-size: 10px;
+    text-align: center;
+}
+
+/* ↑フッター */
+/* ↓ボディー */
+body{
+    background-image: url(image-path("color-2174050.png"));
+    background-size: cover;
+
+    min-height: 100vh; /* ←コンテンツの高さの最小値＝ブラウザの高さに指定 */
+    position: relative;/* ←相対位置 */
+    padding-bottom: 100px; /* ←フッターの高さを指定 */
+    box-sizing: border-box;
+}
+
+.content {
+    
+}
+
+
+/* ↓ボディー loginページ */
+.form_container{
+    padding-top: 25px;
+    height: 670px;
+}
+
+.login_message{
+    color:rgb(75, 75, 75);
+    text-align: left;
+    padding-left: 7%;
+    padding-right: 7%;
+    padding-bottom: 30px;
+    font-size:60px;
+}
+
+.login_messages{
+    display: inline-block;
+    width:55%;
+    margin-top: 7%;
+    float: left;
+}
+
+.form{
+    display: inline-block;
+    margin: 30px auto;
+    padding: 30px 0;
+    background-color: rgba(255, 255, 255, 0.336);
+    width:40%;
+    height:80%;
+    text-align: center;
+}
+
+.form-control{
+    width: 75%;
+    margin : 0 auto;
+}
+
+.form{
+    color:rgb(49, 49, 49);
+}
+
+.btn-outline-warning{
+    margin: 20px auto;
+}
+
+/* ↑ボディー loginページ */
+/* ↓ボディー topページ */
+
+.top_container{
+    display: flex;
+    height: 90%;
+}
+
+img.top_image {
+    width: 100%;
+    padding-right: 7%;
+}
+
+.top_image_container {
+    width: 60%;
+}
+
+.top_message_title {
+    text-align: center;
+    width: 100%;
+    color:rgb(75, 75, 75);
+    font-size: 60px;
+    margin-bottom: 3%;
+}
+
+.top_message {
+    text-align: left;
+    font-size: 50px;
+}
+
+.top_message_container {
+    color:rgb(75, 75, 75);
+}
+
+.top_message_container {
+    width:40%;
+    margin: auto 0;
+    padding-left: 5%;
+}
+
+.top_message_btn {
+    width: 70%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* ↑ボディー topページ */
+/* ↓ボディー 企業一覧ページ */
+
+.card{
+    display: inline-block;
+    text-align: center;
+}
+
+.card_container {
+    margin-right: 3%;
+    margin-left: 3%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+    row-gap: 1em;
+    min-height: 90%;
+}
+
+.card_header {
+    color: rgb(255, 235, 52);
+}
+
+.index_message_btn {
+    width: 70%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.top_title {
+    text-align: center;
+    width: 100%;
+    color:rgb(75, 75, 75);
+    font-size: 40px;
+}
+
+/* ↑ボディー 企業一覧ページ */
+/* ↓ボディー 各ESページ */
+
+.es_url textarea {
+  resize: none;
+  width: 100%;
+  height: 100px;
+
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: none;
+  background: #fdeed807;
+  outline: none;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.box1 {
+    padding: 0.5em 1em;
+    margin-right:  auto;
+    margin-left: auto;
+    color: #232323;
+    background: #fff2f9b7;
+    border-left: solid 10px #ff6e9e;
+    width: 90%;
+    margin-top: 20px;
+}
+.box1 p {
+    margin: 0; 
+    padding: 0;
+}
+
+.box2 {
+    padding: 0.5em 1em;
+    margin: 0 auto;
+    color: #232323;
+    background: #fff2f9b7;
+    border-left: solid 10px #ff6e9e;
+    width: 90%;
+}
+.box2 p {
+    margin: 0; 
+    padding: 0;
+}
+
+.box3 {
+    padding: 0.5em 1em;
+    margin: 0 auto;
+    color: #232323;
+    background: #f7ecfdb6;
+    border-left: solid 10px #e26eff;
+    width: 90%;
+}
+.box3 p {
+    margin: 0; 
+    padding: 0;
+}
+
+/* ↑ボディー 各ESページ */
+/* ↓ボディー 新企業登録ページ */
+
+.newcompany_form {
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px 0;
+    background-color: rgba(255, 255, 255, 0.336);
+    height:80%;
+    text-align: center;
+    border: none;
+}
+
+.newcompany_form input{
+    border: none;
+}
+
+/* ↑ボディー 新企業登録ページ */
+/* ↓ボディー 新ES登録ページ */
+
+.newes_form {
+    width: 80%;
+    margin: 20px auto;
+    padding: 30px 0;
+    background-color: rgba(255, 255, 255, 0.336);
+    height:80%;
+    text-align: center;
+    color:rgb(73, 73, 73);
+}
+
+.newes_form input{
+    border: none;
+}
+
+.newes_form textarea {
+    width: 75%;
+    height: 300px;
+    display: inline-block;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+.newes_form select {
+    height:30px;
+}
+
+.text_prewrap {
+    white-space: pre-wrap;
+}
+
+/* ↑ボディー 新ES登録ページ */

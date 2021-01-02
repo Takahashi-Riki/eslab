@@ -1,10 +1,37 @@
-<p>ここはcommentのnewです</p>
-<%= form_tag("/comment/create/#{@user.id}/#{@company.id}/#{@post.id}") do %>
-    <p>名前</p>
-    <input name="name">
-    <p>コメント</p>
-    <input name="comment">
-    <p>改善案</p>
-    <input name="content">
-    <input type="submit" value="送信">
-<% end %>
+<div class="box1">
+    <h4>ES添削方法　<span class="badge badge-warning">締切日：<%= @post.year_deadline %>年<%= @post.month_deadline %>月<%= @post.day_deadline %>日まで</span></h4>
+    <hr>
+    <div class="es_url">
+    <p>入力内容はご自身のお名前・ESへのコメント・ESの改善案です。</p>
+    <p>全て入力必須ですが、改善案のみ初期値として「なし」が入力されています。</p>
+    <p>送信されたら相手に教えてあげましょう！</p>
+    </div>
+    </div>
+    <br>
+    <div class="box2">
+        <h4>添削するES</h2><hr>
+        <h6>テーマ：<%= @post.name %></h6><br>
+        <div class="text_prewrap"><%= @post.content %></div>
+    </div>
+    <div class="newes_form">
+    <%= form_tag("/comment/create/#{@user.public_uid}/#{@company.id}/#{@post.id}") do %>
+        <div class="mb-3">
+            <label class="form-label"><h2>お名前</h2>※入力必須</label>
+            <input name="name" type="text" class="form-control">
+        </div>
+        <hr>
+        <div class="mb-3">
+            <label class="form-label"><h2>コメント</h2>※入力必須</label>
+            <br>
+            <textarea name="comment" type="text" class="form-control"></textarea>
+        </div>
+        <hr>
+        <div class="mb-3">
+            <label class="form-label"><h2>改善案</h2>※入力必須</label>
+            <br>
+            <textarea name="content" type="text" class="form-control">なし</textarea>
+        </div>
+        <hr>
+        <button type="submit" class="btn btn-outline-warning btn-lg">送信</button>
+    <% end %>
+</div>

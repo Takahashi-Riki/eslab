@@ -1,2 +1,16 @@
-<p>ここはhomeのtopです</p>
-<%= link_to("企業一覧ページ", "/posts/index/#{current_user.id}") %>
+<h2 class="top_message_title">How To Use <span class="top_message_title_span">ESLab</span> ?</h2>
+<div class="top_container">
+    <div class="top_message_container">
+        <h2 class="top_message">使い方は簡単</h2>
+        <h2 class="top_message">1.ESの記入</h2>
+        <h2 class="top_message">2.添削用URLの発行</h2>
+        <h2 class="top_message">3.添削内容の保管</h2>
+        <h2 class="top_message">全てESらぼが行います</h2>
+    </div>
+    <div class="top_image_container">
+        <img src="/assets/top_message_white.png" class="top_image" >
+    </div>
+</div>
+<div class="top_message_btn">
+    <%= link_to("企業一覧ページ", "/posts/index/#{@user.public_uid}", class: "btn btn-info btn-block") %>
+</div>

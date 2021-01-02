@@ -1,10 +1,20 @@
-<p>ここはpostsのindexです</p>
+<h2 class="top_title">企業一覧</h2>
+<div class="index_message_btn">
+    <%= link_to("新しく企業を登録する", "/posts/newcompany", class: "btn btn-info btn-block") %>
+</div>
 <% if @companies %>
-    <% @companies.each do |company| %>
-        <%= company.name %>
-        <%= link_to(company.name, ("/posts/company/#{current_user.id}/#{company.id}")) %>
-    <% end %>
-<% else %>
-    <p>企業が登録されていません</p>
+    <div class="card_container">
+        <% @companies.each do |company| %>
+            <div class="card border-info mb-3">
+                <div class="card-header">
+                    <%= company.name %></br>
+                </div>
+                <div class="card-body">
+                    <%= link_to("この企業のESを見る", ("/posts/company/#{current_user.public_uid}/#{company.id}"), class: "btn btn-outline-info") %>
+                </div>
+            </div>
+        <% end %>
+        </div>
+    <% else %>
+        <p>企業が登録されていません</p>
 <% end %>
-<%= link_to("postのnewcompany", "/posts/newcompany") %>

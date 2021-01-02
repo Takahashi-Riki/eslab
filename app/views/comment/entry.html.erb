@@ -1,6 +1,9 @@
-<p>ここはcommentのentryです</p>
-<%= form_tag("/comment/check/#{@post.user_id}/#{@post.company_id}/#{@post.id}") do %>
-    <p>パスワードを入力してください</p>
-    <input name="password">
-    <input type="submit" value="エントリー">
-<% end %>
+<div class="newcompany_form">
+    <%= form_tag("/comment/check/#{@user.public_uid}/#{@post.company_id}/#{@post.id}") do %>
+        <div class="mb-3">
+        <label class="form-label">パスワードを入力してください</label>
+        <input name="password" type="text" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">エントリー</button>
+    <% end %>
+</div>

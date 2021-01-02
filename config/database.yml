@@ -12,8 +12,11 @@ default: &default
 development:
   <<: *default
   database: db/development.sqlite3
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
+  #username: <%= ENV['DB_USERNAME'] %>
+  #password: <%= ENV['DB_PASSWORD'] %>
+  user_name: "eslab.official@gmail.com"
+  #password: "takahashiriki"
+  password: "njszbwrhrgzxmkal"
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -21,11 +24,17 @@ development:
 test:
   <<: *default
   database: db/test.sqlite3
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
+  #username: <%= ENV['DB_USERNAME'] %>
+  #password: <%= ENV['DB_PASSWORD'] %>
+  user_name: "eslab.official@gmail.com"
+  #password: "takahashiriki"
+  password: "njszbwrhrgzxmkal"
 
 production:
   <<: *default
   database: db/production.sqlite3
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
+  #username: <%= ENV['DB_USERNAME'] %>
+  #password: <%= ENV['DB_PASSWORD'] %>
+  user_name: "eslab.official@gmail.com"
+  #password: "takahashiriki"
+  password: "njszbwrhrgzxmkal"

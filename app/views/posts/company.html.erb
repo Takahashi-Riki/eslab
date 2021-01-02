@@ -1,10 +1,22 @@
-<p>ここはpostsのcompanyです</p>
+<h2 class="top_title">ES一覧</h2>
+<div class="index_message_btn">
+    <%= link_to("新しくESを登録する", "/posts/newes/#{current_user.public_uid}/#{@company.id}", class: "btn btn-info btn-block") %>
+    <%= link_to("この企業を削除する　※この企業のESも全て削除されます", "/posts/company/delete/#{current_user.public_uid}/#{@company.id}", class: "btn btn-info btn-block", method: "post") %>
+</div>
 <% if @posts %>
-    <% @posts.each do |post| %>
-        <%= post.name %>
-        <%= link_to(post.name, ("/posts/company/#{current_user.id}/#{@company.id}/#{post.id}")) %>
-    <% end %>
-<% else %>
-    <p>ESが登録されていません</p>
+    <div class="card_container">
+        <% @posts.each do |post| %>
+            <div class="card border-info mb-3">
+                <div class="card-header">
+                    <%= post.name %><br>
+                    <span class="badge badge-warning">締切日：<%= post.year_deadline %>年<%= post.month_deadline %>月<%= post.day_deadline %>日まで</span></br>
+                </div>
+                <div class="card-body">
+                    <%= link_to("このESを確認する", ("/posts/company/#{current_user.public_uid}/#{@company.id}/#{post.id}"), class: "btn btn-outline-info") %>
+                </div>
+            </div>
+        <% end %>
+        </div>
+    <% else %>
+        <p>ESが登録されていません</p>
 <% end %>
-<%= link_to("postのnewes", "/posts/newes/#{current_user.id}/#{@company.id}") %>

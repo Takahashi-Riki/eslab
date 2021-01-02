@@ -2,17 +2,17 @@
     <%= message %>
 <% end %>
 <div class="newes_form">
-    <%= form_tag("/posts/createes/#{current_user.public_uid}/#{@company.id}") do %>
+    <%= form_tag("/posts/es/update/#{current_user.public_uid}/#{@post.company_id}/#{@post.id}") do %>
         <div class="mb-3">
             <label class="form-label"><h2>ESテーマ</h2></label>
-            <input name="name" type="text" class="form-control">
+            <input name="name" type="text" class="form-control" value="<%= @post.name %>">
         </div>
         <hr>
         <label class="form-label"><h2>提出期限</h2></label>
         <br>
-        <select name="year_deadline" id="id_year"></select>年
-        <select name="month_deadline" id="id_month"></select>月
-        <select name="day_deadline" id="id_day"></select>日まで
+        <select name="year_deadline" id="id_year"><%= @post.year_deadline %></select>年
+        <select name="month_deadline" id="id_month"><%= @post.month_deadline %></select>月
+        <select name="day_deadline" id="id_day"><%= @post.day_deadline %></select>日まで
         <script>
         (function() {
         'use strict';
@@ -49,13 +49,13 @@
         <div class="mb-3">
             <label class="form-label"><h2>内容</h2></label>
             <br>
-            <textarea name="content" type="text" class="form-control"></textarea>
+            <textarea name="content" type="text" class="form-control"><%= @post.content %></textarea>
         </div>
         <hr>
         <div class="mb-3">
             <label class="form-label"><h2>パスワード</h2></label>
             <p>※ESを添削してもらう際にあなたのESにアクセスするためのパスワードです</p>
-            <input name="password" type="text" class="form-control">
+            <input name="password" type="text" class="form-control" value="<%= @post.password %>">
         </div>
         <button type="submit" class="btn btn-outline-warning btn-lg">送信</button>
     <% end %>

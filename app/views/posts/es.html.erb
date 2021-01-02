@@ -1,20 +1,48 @@
-<p>ここはpostsのesです</p>
-<p>このESを添削してもらいましょう</p>
-<p>以下をコピーしてください</p>
-<p>-----------------------------</p>
-<p>ESの添削をお願いします</p>
-<p>URL:localhost:3000/comment/entry/<%= @user.id %>/<%= @company.id %>/<%= @post.id %></p>
-<p>パスワード:<%= @post.password %></p>
-<p>-----------------------------</p>
-
-<%= @post.name %>
-<%= @post.content %>
-<p></p>
-<% if @comments %>
+<div class="index_message_btn">
+    <%= link_to("このESを削除する", "/posts/es/delete/#{current_user.public_uid}/#{@post.company_id}/#{@post.id}", class: "btn btn-info btn-block", method: "post") %>
+    <%= link_to("このESを編集する", "/posts/es/edit/#{current_user.public_uid}/#{@post.company_id}/#{@post.id}", class: "btn btn-info btn-block") %>
+</div>
+<div class="box1">
+    <h4>ES添削方法　<span class="badge badge-warning">締切日：<%= @post.year_deadline %>年<%= @post.month_deadline %>月<%= @post.day_deadline %>日まで</span></h4>
+    <p>このESを添削してもらいたい場合には、以下をコピーして相手に送信してください</p>
+    <hr>
+    <div class="es_url">
+    <textarea id="copy" readonly></textarea>
+    </div>
+    <script>
+    var e = document.getElementById ('copy');
+    e.value = "以下のURLにアクセスし、ESの添削をお願いします。\nURL：localhost:3000/comment/entry/<%= params[:id] %>/<%= params[:company_id] %>/<%= params[:post_id] %>\nパスワード：<%= @post.password %>\n締切日：<%= @post.year_deadline %>年<%= @post.month_deadline %>月<%= @post.day_deadline %>日まで"
+    </script>
+    <button onclick="cp()" class="btn btn-light">コピー</button>
+    <script>
+    function cp(){
+        var txt = document.getElementById("copy")
+        txt.select();
+        document.execCommand("Copy")
+    }
+    </script>
+</div>
+<br>
+<div class="box2">
+    <h4>あなたのES</h2><hr>
+    <h6>テーマ：<%= @post.name %></h6><br>
+    <div class="text_prewrap"><%= @post.content %></div>
+</div>
+<br>
+<% if @comments.length >= 1 %>
     <% @comments.each do |comment| %>
-        <%= comment.comment %>
-        <%= comment.content %>
+        <div class="box3">
+            <h4>添削内容</h2><hr>
+            <h6>名前：<%= comment.name %></h6><br>
+            <h6>コメント</h6>
+            <div class="text_prewrap"><%= comment.comment %></div><br>
+            <h6>改善案</h6>
+            <div class="text_prewrap"><%= comment.content %></div>
+        </div>
     <% end %>
 <% else %>
-    <p>コメントが登録されていません</p>
+    <div class="box3">
+        <h4>添削内容</h2><hr>
+        <p>コメントが登録されていません</p>
+    </div>
 <% end %>

@@ -5,4 +5,5 @@ class Post < ApplicationRecord
     validates :year_deadline, {presence: true}
     validates :month_deadline, {presence: true}
     validates :day_deadline, {presence: true}
+
 end
