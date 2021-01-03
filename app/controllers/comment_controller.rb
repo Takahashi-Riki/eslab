@@ -26,6 +26,7 @@ class CommentController < ApplicationController
     @company = Company.find_by(id: params[:company_id], user_id: @user.id)
     @comment = Comment.new(name: params[:name], comment: params[:comment], content: params[:content], post_id: params[:post_id], user_id: @user.id, company_id: params[:company_id])
     if @comment.save
+      CommentMailer.send_when(@user).deliver
       redirect_to("/comment/finish/#{@user.id}/#{@company.id}/#{@post.id}")
     else
       render action: 'new'
