@@ -1,4 +1,4 @@
-<h2 class="top_message_title">How To Use <span class="top_message_title_span">ESLab</span> ?</h2>
+<h2 class="top_message_title">How To Use <span class="top_message_title_span">ESらぼ</span> ?</h2>
 <div class="top_container">
     <div class="top_message_container">
         <h2 class="top_message">使い方は簡単</h2>
@@ -12,5 +12,12 @@
     </div>
 </div>
 <div class="top_message_btn">
-    <%= link_to("企業一覧ページ", "/posts/index/#{@user.public_uid}", class: "btn btn-info btn-block") %>
+    
+    <% if @not_seen_comments.length >= 1 %>
+        <div class="btn btn-info btn-block">
+            <%= link_to("企業一覧ページ　", "/posts/index/#{@user.public_uid}", class: "top_btn") %><span class="badge badge-danger">未読コメント数：<%= @not_seen_comments.length %></span></br>
+        </div>
+    <% else %>
+        <%= link_to("企業一覧ページ", "/posts/index/#{@user.public_uid}", class: "btn btn-info btn-block") %>
+    <% end %>
 </div>

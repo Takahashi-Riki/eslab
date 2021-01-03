@@ -8,6 +8,12 @@
             <div class="card border-info mb-3">
                 <div class="card-header">
                     <%= company.name %></br>
+                    <% not_seen_comment = @not_seen_comments.where(company_id: company.id) %>
+                    <% if not_seen_comment.length >= 1 %>
+                        <span class="badge badge-danger">未読コメント数：<%= not_seen_comment.length %></span></br>
+                    <% else %>
+                        <span class="badge badge-secondary">未読コメント数：0</span></br>
+                    <% end %>
                 </div>
                 <div class="card-body">
                     <%= link_to("この企業のESを見る", ("/posts/company/#{current_user.public_uid}/#{company.id}"), class: "btn btn-outline-info") %>

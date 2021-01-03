@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'posts/newes/:id/:company_id' => 'posts#newes'#新規ES作成ページ
   post 'posts/createes/:id/:company_id' => 'posts#createes'#新規ES作成ページ
   get 'posts/company/:id/:company_id/:post_id' => 'posts#es'#各ESページ
+  post 'posts/es/ifseen/:id/:company_id/:post_id' => 'posts#ifseenes'#ES既読ページ
   post 'posts/es/delete/:id/:company_id/:post_id' => 'posts#deletees'#ES削除ページ
   get 'posts/es/edit/:id/:company_id/:post_id' => 'posts#edites'#ES更新ページ
   post 'posts/es/update/:id/:company_id/:post_id' => 'posts#updatees'#ES更新ページ

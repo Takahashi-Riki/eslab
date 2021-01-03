@@ -10,6 +10,12 @@
                 <div class="card-header">
                     <%= post.name %><br>
                     <span class="badge badge-warning">締切日：<%= post.year_deadline %>年<%= post.month_deadline %>月<%= post.day_deadline %>日まで</span></br>
+                    <% not_seen_comment = @not_seen_comments.where(post_id: post.id) %>
+                    <% if not_seen_comment.length >= 1 %>
+                        <span class="badge badge-danger">未読コメント数：<%= not_seen_comment.length %></span></br>
+                    <% else %>
+                        <span class="badge badge-secondary">未読コメント数：0</span></br>
+                    <% end %>
                 </div>
                 <div class="card-body">
                     <%= link_to("このESを確認する", ("/posts/company/#{current_user.public_uid}/#{@company.id}/#{post.id}"), class: "btn btn-outline-info") %>

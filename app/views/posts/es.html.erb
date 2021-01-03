@@ -1,10 +1,11 @@
 <div class="index_message_btn">
     <%= link_to("このESを削除する", "/posts/es/delete/#{current_user.public_uid}/#{@post.company_id}/#{@post.id}", class: "btn btn-info btn-block", method: "post") %>
     <%= link_to("このESを編集する", "/posts/es/edit/#{current_user.public_uid}/#{@post.company_id}/#{@post.id}", class: "btn btn-info btn-block") %>
+    <%= link_to("このESのコメントを全て既読にする", "/posts/es/ifseen/#{current_user.public_uid}/#{@post.company_id}/#{@post.id}", class: "btn btn-danger btn-block", method: "post") %>
 </div>
 <div class="box1">
     <h4>ES添削方法　<span class="badge badge-warning">締切日：<%= @post.year_deadline %>年<%= @post.month_deadline %>月<%= @post.day_deadline %>日まで</span></h4>
-    <p>このESを添削してもらいたい場合には、以下をコピーして相手に送信してください</p>
+    <p>このESを添削してもらいたい場合には、以下をコピーして相手に送信してください。</p>
     <hr>
     <div class="es_url">
     <textarea id="copy" readonly></textarea>

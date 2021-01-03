@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @companies = Company.where(user_id: current_user.id)
+    @not_seen_comments = Comment.where(user_id: current_user.id, if_seen: false)
   end
 
   def newcompany
@@ -27,6 +28,7 @@ class PostsController < ApplicationController
   def company
     @company = Company.find_by(user_id: current_user.id, id: params[:company_id])
     @posts = Post.where(user_id: current_user.id, company_id: params[:company_id])
+    @not_seen_comments = Comment.where(company_id: params[:company_id], user_id: current_user.id, if_seen: false)
   end
 
   def newes
@@ -47,9 +49,20 @@ class PostsController < ApplicationController
 
   def es
     @user = User.find_by(public_uid: params[:id])
-    #@company = Company.find_by(id: params[:company_id], user_id: params[:id])
     @post = Post.find_by(id: params[:post_id], company_id: params[:company_id], user_id: current_user.id)
-    @comments = Comment.where(post_id: params[:post_id], company_id: params[:company_id], user_id: current_user.id)
+    @comments = Comment.where(post_id: @post.id, company_id: @post.company_id, user_id: current_user.id)
+  end
+
+  def ifseenes
+    @user = User.find_by(public_uid: params[:id])
+    @post = Post.find_by(id: params[:post_id], company_id: params[:company_id], user_id: current_user.id)
+    @not_seen_comments = Comment.where(post_id: params[:post_id], company_id: params[:company_id], user_id: current_user.id, if_seen: false)
+    for @comment in @not_seen_comments do
+      @comment.if_seen = true
+      @comment.save
+    end
+    flash[:notice] = "#{@not_seen_comments.length}件のコメントを既読にしました"
+    redirect_to("/posts/company/#{current_user.public_uid}/#{@post.company_id}/#{@post.id}")
   end
 
   def deletees

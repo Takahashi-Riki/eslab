@@ -1,34 +1,50 @@
 <div class="form_container">
-<div class="login_messages">
-  <h2 class="login_message">ESらぼで</h2>
-  <h2 class="login_message">信頼できる仲間や先輩の</h2>
-  <h2 class="login_message">力を借りましょう</h2>
-</div>
-<div class="form">
-  <h2 class="form_message">さあ、ログインしましょう。</h2>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="mb-3">
-      <%= f.label :email , class: "form-label" %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-    </div>
+  <div class="login_messages">
+    <h2 class="login_message">一番使いやすい</h2>
+    <h2 class="login_message">ES管理システムがESらぼ</h2>
+    <h4 class="login_message">ES保管・<span class="login_message_span">添削依頼・添削保管</span></h4>
+    <h4 class="login_message">なんでもできる</h4>
+  </div>
+  <div class="form">
+    <h2 class="form_message">さあ、ログインしましょう。</h2>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="mb-3">
+        <%= f.label :email , class: "form-label" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      </div>
 
-    <div class="mb-3">
-      <%= f.label :password , class: "form-label" %><br />
-      <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
-    </div>
+      <div class="mb-3">
+        <%= f.label :password , class: "form-label" %><br />
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+      </div>
 
-    <% if devise_mapping.rememberable? %>
-      <div>
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+      <% if devise_mapping.rememberable? %>
+        <div>
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+
+      <div class="action">
+        <%= f.submit "ログイン", class: "btn btn-outline-warning btn-lg" %>
       </div>
     <% end %>
 
-    <div class="action">
-      <%= f.submit "ログイン", class: "btn btn-outline-warning btn-lg" %>
-    </div>
-  <% end %>
-
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+  </div>
 </div>
+<div class="about_container">
+  <h2 class="top_message_title">How To Use <span class="top_message_title_span">ESらぼ</span> ?</h2>
+  <div class="top_container">
+      <div class="top_message_container">
+          <h2 class="top_message">使い方は簡単</h2>
+          <h2 class="top_message">1.ESの管理</h2>
+          <h2 class="top_message">2.添削依頼用URLの発行</h2>
+          <h2 class="top_message">3.添削内容の保管</h2>
+          <h2 class="top_message">全てESらぼで。</h2>
+      </div>
+      <div class="top_image_container">
+          <img src="/assets/top_message_white.png" class="top_image" >
+      </div>
+  </div>
 </div>

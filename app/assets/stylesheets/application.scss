@@ -51,7 +51,7 @@ header{
 
 .header_nav{
     display: inline-block;
-    margin-top: 25px;
+    margin-top: 30px;
     float: right;
     margin-right: 30px;
 }
@@ -115,7 +115,18 @@ body{
     padding-left: 7%;
     padding-right: 7%;
     padding-bottom: 30px;
+}
+
+h2.login_message {
     font-size:60px;
+}
+
+h4.login_message {
+    font-size:40px;
+}
+
+.login_message_span {
+    color: rgb(255, 80, 226);
 }
 
 .login_messages{
@@ -194,6 +205,11 @@ img.top_image {
     margin-bottom: 3%;
     margin-right: auto;
     margin-left: auto;
+}
+
+.top_btn {
+    color: snow;
+    text-align: center;
 }
 
 /* ↑ボディー topページ */
