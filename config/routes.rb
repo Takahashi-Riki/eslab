@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root 'home#top'
   get '/' => 'home#top'
-  get 'about' => 'home#about'
+  get 'privacy' => 'home#privacy'
 
   get 'posts/index/:id' => 'posts#index'#企業一覧ページ
   get 'posts/newcompany' => 'posts#newcompany'#新規企業作成ページ

@@ -5,6 +5,7 @@ class HomeController < ApplicationController
     @not_seen_comments = Comment.where(user_id: current_user.id, if_seen: false)
   end
 
-  def about
+  def privacy
+    
   end
 end
