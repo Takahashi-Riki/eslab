@@ -1,24 +1,14 @@
-# README
+#このサービスについて
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+このサービスは就職活動を行う学生が効率的にエントリーシートを執筆するためのサービスです。
 
-Things you may want to cover:
+＜具体的な機能＞
+・就活生によるエントリーシートの執筆
+・就活生による先輩などへのエントリーシートの添削依頼
+・依頼を受けた第三者による添削
 
-* Ruby version
+#サービスの利用方法
 
-* System dependencies
+https://shukatsu-es-lab.herokuapp.com
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+上記のサイトへアクセスし、新規登録を行った上で利用をお願いいたします。
